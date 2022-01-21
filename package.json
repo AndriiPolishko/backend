@@ -4,12 +4,15 @@
   "description": "backend for dopka project",
   "main": "index.js",
   "scripts": {
-    "eslint:fix": "eslint . --fix",
-    "eslint:check": "eslint . --ignore-path .gitignore",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear",
     "format:fix": "prettier --write .",
     "format": "prettier --check .",
+    "eslint:fix": "eslint . --fix",
+    "eslint:check": "eslint . --ignore-path .gitignore",
     "prepare": "husky install",
-    "pre-commit": "npm run eslint:check && npm run format "
+    "pre-commit": "npm run eslint:check && npm run stylelint:check && npm run format"
   },
   "repository": {
     "type": "git",
