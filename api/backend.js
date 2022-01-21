@@ -116,8 +116,8 @@ export const server = http.createServer(function (req, res) {
   proxy.on("proxyRes", function (proxyRes, req, res) {
     proxyRes.headers["X-Frame-Options"] = "";
   });
-
-  proxy.web(req.url.slice(1), res, { target: `${origin}` });
+  req.url = origin;
+  proxy.web(req, res, { target: `${origin}` });
 });
 
 const port = 8000;
