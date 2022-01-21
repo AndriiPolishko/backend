@@ -110,8 +110,8 @@ const proxy = httpProxy.createProxyServer({
 });
 
 export const server = http.createServer(function (req, res) {
-  let origin = req.url;
-  //origin = req.body.ourUrl
+  let origin = "https://www.google.com/";
+  origin = req.body.url;
 
   proxy.on("proxyRes", function (proxyRes, req, res) {
     proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
