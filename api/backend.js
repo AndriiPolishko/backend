@@ -114,9 +114,9 @@ export const server = http.createServer(function (req, res) {
   if (req.url !== "/") origin = req.url.slice(1);
 
   proxy.on("proxyRes", function (proxyRes, req, res) {
-    proxyRes.headers["X-Frame-Options"] = "";
+    //proxyRes.headers["X-Frame-Options"] = "";
+    proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
   });
-  res.end(req.json());
   //req.url = origin;
   //proxy.web(req, res, { target: `${origin}`,buffer: streamify(req.rawBody) });
 });
