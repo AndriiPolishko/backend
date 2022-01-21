@@ -114,10 +114,10 @@ export const server = http.createServer(function (req, res) {
   if (req.url !== "/") origin = req.url.slice(1);
 
   proxy.on("proxyRes", function (proxyRes, req, res) {
-    proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
+    proxyRes.headers["X-Frame-Options"] = "";
   });
-  res.statusCode = 200;
-  proxy.web(req, res, { target: `${origin}` });
+
+  proxy.web(req.url.slice(1), res, { target: `${origin}` });
 });
 
 const port = 8000;
