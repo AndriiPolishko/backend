@@ -109,16 +109,14 @@ const proxy = httpProxy.createProxyServer({
   followRedirects: true,
 });
 
-const server = http.createServer(
-  (module.exports = async function (req, res) {
-    let origin = "https://www.mailcheck.co/";
-    //origin = req.body.ourUrl
-    proxy.on("proxyRes", function (proxyRes, req, res) {
-      proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
-    });
-    proxy.web(req, res, { target: `${origin}` });
-  }),
-);
+export const server = http.createServer(function (req, res) {
+  let origin = "https://www.mailcheck.co/";
+  //origin = req.body.ourUrl
+  proxy.on("proxyRes", function (proxyRes, req, res) {
+    proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
+  });
+  proxy.web(req, res, { target: `${origin}` });
+});
 
 const port = 8000;
 server.listen(port);
