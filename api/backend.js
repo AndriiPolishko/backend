@@ -111,7 +111,7 @@ const proxy = httpProxy.createProxyServer({
 });
 
 export const server = http.createServer(function (req, res) {
-  origin = req.url;
+  if (req.url === undefined) origin = req.url;
 
   proxy.on("proxyRes", function (proxyRes, req, res) {
     proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
