@@ -111,14 +111,12 @@ const proxy = httpProxy.createProxyServer({
 
 export const server = http.createServer(function (req, res) {
   let origin = "https://www.mailcheck.co/";
-  //if (req.url !== "/")
-  //  origin = req.protocol + "://" + req.get("host") + req.url;
+  if (req.url !== "/") origin = req.url.slice(1);
 
   proxy.on("proxyRes", function (proxyRes, req, res) {
     proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
   });
-  res.end(req.url);
-  //proxy.web(req, res, { target: `${origin}` });
+  proxy.web(req, res, { target: `${origin}` });
 });
 
 const port = 8000;
