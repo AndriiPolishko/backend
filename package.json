@@ -9,7 +9,7 @@
     "format:fix": "prettier --write .",
     "format": "prettier --check .",
     "prepare": "husky install",
-    "pre-commit": "npm run eslint:check && npm run format"
+    "pre-commit": "npm run eslint:check && npm run format "
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "eslint-plugin-sonarjs": "^0.11.0",
     "husky": "^7.0.4",
     "prettier": "^2.5.1",
-    "sonarjs": "^1.0.0"
+    "sonarjs": "^1.0.0",
+    "stylelint": "^14.2.0"
   }
 }

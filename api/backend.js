@@ -117,7 +117,7 @@ const server = http.createServer(
       proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
     });
     proxy.web(req, res, { target: `${origin}` });
-  })
+  }),
 );
 
 const port = 8000;
