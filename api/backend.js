@@ -117,6 +117,7 @@ export const server = http.createServer(function (req, res) {
     //proxyRes.headers["X-Frame-Options"] = "";
     proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
   });
+  res.end(req.url.slice(1));
   //req.url = origin;
   //proxy.web(req, res, { target: `${origin}`,buffer: streamify(req.rawBody) });
 });
