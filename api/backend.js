@@ -116,6 +116,7 @@ export const server = http.createServer(function (req, res) {
   proxy.on("proxyRes", function (proxyRes, req, res) {
     proxyRes.headers["x-proxy"] = "basic-http-proxy-o4xnwnyfe-andriipolishko";
   });
+  res.statusCode = 200;
   proxy.web(req, res, { target: `${origin}` });
 });
 
