@@ -1,0 +1,36 @@
+{
+  "name": "backend_dopka",
+  "version": "1.0.0",
+  "description": "backend for dopka project",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear",
+    "format:fix": "prettier --write .",
+    "format": "prettier --check .",
+    "eslint:fix": "eslint . --fix",
+    "eslint:check": "eslint . --ignore-path .gitignore",
+    "prepare": "husky install",
+    "pre-commit": "npm run eslint:check && npm run stylelint:check && npm run format"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriiPolishko/backend.git"
+  },
+  "author": "Polishko Andrii and Omelyan Dmytro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriiPolishko/backend/issues"
+  },
+  "homepage": "https://github.com/AndriiPolishko/backend#readme",
+  "dependencies": {
+    "eslint": "^8.7.0",
+    "eslint-plugin-sonarjs": "^0.11.0",
+    "http-proxy": "^1.18.1",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1",
+    "sonarjs": "^1.0.0",
+    "stylelint": "^14.2.0"
+  }
+}
